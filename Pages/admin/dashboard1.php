@@ -322,7 +322,7 @@ if ($conn) {
 <div class="page-header">
     <h1>Dashboard</h1>
     <div class="breadcrumb">
-        <a href="dashboard.php">Home</a> / <span>Dashboard</span>
+        <a href="dashboard.php">Home</a> / <span>Dashboard </span>
     </div>
 </div>
 
