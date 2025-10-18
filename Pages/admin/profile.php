@@ -196,7 +196,7 @@ $csrf_token = $_SESSION['csrf_token'];
 
 <div class="container">
     <div class="alert alert-success" id="successAlert" role="alert">
-        <i class="fas fa-check-circle"></i> Vos informations ont été mises à jour avec succès.
+        <i class="fas fa-check-circle"></i> Your information has been successfully updated.
     </div>
     
     <div class="alert alert-danger" id="errorAlert" role="alert">
@@ -206,13 +206,13 @@ $csrf_token = $_SESSION['csrf_token'];
     <div class="card profile-card">
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
-                <h4 class="mb-0"><i class="fas fa-user-circle"></i> Profil Utilisateur</h4>
+                <h4 class="mb-0"><i class="fas fa-user-circle"></i> User Profile</h4>
                 <span class="role-badge"><?php echo $user_role; ?></span>
             </div>
         </div>
         <div class="card-body user-info">
             <div class="info-item">
-                <div class="info-label"><i class="fas fa-user icon"></i>Nom complet</div>
+                <div class="info-label"><i class="fas fa-user icon"></i>complete name</div>
                 <div class="info-value"><?php echo htmlspecialchars($user['first_name']) . ' ' . htmlspecialchars($user['last_name']); ?></div>
             </div>
             <div class="info-item">
@@ -224,7 +224,7 @@ $csrf_token = $_SESSION['csrf_token'];
                 <div class="info-value"><?php echo htmlspecialchars($user['phone_number']); ?></div>
             </div>
             <div class="info-item">
-                <div class="info-label"><i class="fas fa-globe icon"></i>Pays</div>
+                <div class="info-label"><i class="fas fa-globe icon"></i>Country</div>
                 <div class="info-value"><?php echo htmlspecialchars($user['country']); ?></div>
             </div>
             <div class="info-item">
@@ -236,13 +236,13 @@ $csrf_token = $_SESSION['csrf_token'];
                 <div class="info-value"><?php echo htmlspecialchars($user['quarter']); ?></div>
             </div>
             <div class="info-item">
-                <div class="info-label"><i class="fas fa-calendar-alt icon"></i>Date d'inscription</div>
+                <div class="info-label"><i class="fas fa-calendar-alt icon"></i>Registration Date </div>
                 <div class="info-value"><?php echo date('d/m/Y à H:i', strtotime($user['registration_date'])); ?></div>
             </div>
             
             <div class="text-center mt-4">
                 <button class="btn btn-primary btn-edit" data-bs-toggle="modal" data-bs-target="#editProfileModal">
-                    <i class="fas fa-edit"></i> Modifier le Profil
+                    <i class="fas fa-edit"></i> Modify Profile
                 </button>
             </div>
         </div>

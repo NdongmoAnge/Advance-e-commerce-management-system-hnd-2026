@@ -73,11 +73,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bind_param("ssssiis", $first_name, $last_name, $email, $phone_number, $role_id, $is_active, $user_id);
             
             if ($stmt->execute()) {
-                $_SESSION['success'] = "Les informations de l'utilisateur ont été mises à jour avec succès";
+                $_SESSION['success'] = "User information has been updated successfully";
                 header("Location: view_user.php?id=" . $user_id);
                 exit;
             } else {
-                $_SESSION['error'] = "Erreur lors de la mise à jour de l'utilisateur: " . $conn->error;
+                $_SESSION['error'] = "Error updating user " . $conn->error;
             }
         }
     }
@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Modifier l'utilisateur | TechPro Admin</title>
+    <title>Edit user | TechPro Admin</title>
     <?php include 'includes/header_scripts.php'; ?>
 </head>
 <body>
@@ -97,14 +97,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Modifier l'utilisateur</h1>
+                    <h1 class="h2">Edit user</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group me-2">
                             <a href="all_users.php" class="btn btn-sm btn-outline-secondary">
-                                <i class="fas fa-arrow-left"></i> Retour
+                                <i class="fas fa-arrow-left"></i> Back
                             </a>
                             <a href="view_user.php?id=<?php echo $user_id; ?>" class="btn btn-sm btn-info">
-                                <i class="fas fa-eye"></i> Voir les détails
+                                <i class="fas fa-eye"></i> See all details
                             </a>
                         </div>
                     </div>
@@ -114,17 +114,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title mb-0">Informations de l'utilisateur</h5>
+                        <h5 class="card-title mb-0">User Information</h5>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="">
                             <div class="row mb-3">
                                 <div class="col-md-6">
-                                    <label for="first_name" class="form-label">Prénom <span class="text-danger">*</span></label>
+                                    <label for="first_name" class="form-label">First Name <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="first_name" name="first_name" value="<?php echo htmlspecialchars($user['first_name']); ?>" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="last_name" class="form-label">Nom <span class="text-danger">*</span></label>
+                                    <label for="last_name" class="form-label">Last Name <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="last_name" name="last_name" value="<?php echo htmlspecialchars($user['last_name']); ?>" required>
                                 </div>
                             </div>
@@ -135,7 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <input type="email" class="form-control" id="email" name="email" value="<?php echo htmlspecialchars($user['email']); ?>" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="phone_number" class="form-label">Téléphone</label>
+                                    <label for="phone_number" class="form-label">Telephone</label>
                                     <input type="text" class="form-control" id="phone_number" name="phone_number" value="<?php echo htmlspecialchars($user['phone_number']); ?>">
                                 </div>
                             </div>
@@ -157,7 +157,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <div class="form-check mt-4">
                                         <input class="form-check-input" type="checkbox" id="is_active" name="is_active" <?php echo ($user['is_active'] == 1) ? 'checked' : ''; ?>>
                                         <label class="form-check-label" for="is_active">
-                                            Compte actif
+                                           Active account
                                         </label>
                                     </div>
                                 </div>
@@ -166,10 +166,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <div class="row mt-4">
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-primary">
-                                        <i class="fas fa-save me-1"></i> Enregistrer les modifications
+                                        <i class="fas fa-save me-1"></i> Save changes
                                     </button>
                                     <a href="view_user.php?id=<?php echo $user_id; ?>" class="btn btn-secondary ms-2">
-                                        <i class="fas fa-times me-1"></i> Annuler
+                                        <i class="fas fa-times me-1"></i> Cancel
                                     </a>
                                 </div>
                             </div>

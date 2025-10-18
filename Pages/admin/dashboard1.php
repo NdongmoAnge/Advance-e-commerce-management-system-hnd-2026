@@ -387,7 +387,8 @@ if ($conn) {
                     </thead>
                     <tbody>
                         <?php 
-                        $monthNames = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+                        $monthNames = ['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'Agust', 'September', 'October', 'November', 'December
+                        '];
                         $totalMonthlyRevenue = 0;
                         for ($i = 0; $i < 12; $i++) { 
                             $revenue = number_format($monthlyRevenueData[$i], 2);
@@ -415,7 +416,7 @@ if ($conn) {
             </div>
             <div class="table-body">
                 <?php if (empty($orderStatusLabels)): ?>
-                <div class="no-data-message">Aucune donnée disponible</div>
+                <div class="no-data-message">No data available</div>
                 <?php else: ?>
                 <table class="dashboard-table">
                     <thead>
@@ -475,13 +476,13 @@ if ($conn) {
 </div>
 <div class="table-body">
 <?php if (empty($topProductsLabels)): ?>
-<div class="no-data-message">Aucune donnée disponible</div>
+<div class="no-data-message">No data available</div>
 <?php else: ?>
 <table class="dashboard-table">
     <thead>
         <tr>
             <th>Product</th>
-            <th>Unités Vendues</th>
+            <th>Units Sold</th>
             <th>Percentage</th>
         </tr>
     </thead>
@@ -511,17 +512,17 @@ if ($conn) {
 </div>
 <div class="table-container">
 <div class="table-header">
-    <h3>Tendance des Inscriptions</h3>
+    <h3>Registration Trend</h3>
 </div>
 <div class="table-body">
 <?php if (empty($userTrendsLabels)): ?>
-<div class="no-data-message">Aucune donnée disponible</div>
+<div class="no-data-message">No data available</div>
 <?php else: ?>
 <table class="dashboard-table">
     <thead>
         <tr>
-            <th>Période</th>
-            <th>Nouveaux Utilisateurs</th>
+            <th>Period</th>
+            <th>New user</th>
             <th>Variation</th>
         </tr>
     </thead>
@@ -561,19 +562,19 @@ if ($conn) {
 <div class="table-row">
 <div class="table-container">
 <div class="table-header">
-    <h3>Produits à Faible Stock</h3>
+    <h3>Low Stock Products</h3>
 </div>
 <div class="table-body">
 <?php if (empty($lowStockLabels)): ?>
-<div class="no-data-message">Aucune donnée disponible</div>
+<div class="no-data-message">No data available</div>
 <?php else: ?>
 <table class="dashboard-table">
     <thead>
         <tr>
-            <th>Produit</th>
-            <th>Stock Actuel</th>
-            <th>Seuil Minimum</th>
-            <th>Statut</th>
+            <th>Product</th>
+            <th>Actual stock</th>
+            <th>Minimum Threshold</th>
+            <th>Status</th>
         </tr>
     </thead>
     <tbody>
@@ -611,24 +612,24 @@ if ($conn) {
 </div>
 <div class="table-container">
 <div class="table-header">
-<h3>Analyse des Ventes</h3>
+<h3>Sales Analysis</h3>
 <div class="table-toggle">
-    <button id="weeklyBtn" class="table-btn active">Semaine</button>
-    <button id="monthlyBtn" class="table-btn">Mois</button>
-    <button id="yearlyBtn" class="table-btn">Année</button>
+    <button id="weeklyBtn" class="table-btn active">Week</button>
+    <button id="monthlyBtn" class="table-btn">Month</button>
+    <button id="yearlyBtn" class="table-btn">Year</button>
 </div>
 </div>
 <div class="table-body">
 <!-- Weekly Sales Table (displayed by default) -->
 <?php if (empty($weeklyData) || array_sum($weeklyData) == 0): ?>
-<div class="no-data-message" id="weeklySalesNoData">Aucune donnée disponible</div>
+<div class="no-data-message" id="weeklySalesNoData">No data available</div>
 <?php else: ?>
 <table class="dashboard-table" id="weeklySalesTable">
     <thead>
         <tr>
-            <th>Jour</th>
-            <th>Ventes (CFA)</th>
-            <th>Pourcentage</th>
+            <th>Day</th>
+            <th>Sales (CFA)</th>
+            <th>Percentage</th>
         </tr>
     </thead>
     <tbody>
@@ -660,9 +661,9 @@ if ($conn) {
 <table class="dashboard-table" id="monthlySalesTable" style="display: none;">
     <thead>
         <tr>
-            <th>Semaine</th>
-            <th>Ventes (CFA)</th>
-            <th>Pourcentage</th>
+            <th>Week</th>
+            <th>Sales (CFA)</th>
+            <th>Percentage</th>
         </tr>
     </thead>
     <tbody>
@@ -694,9 +695,9 @@ if ($conn) {
 <table class="dashboard-table" id="yearlySalesTable" style="display: none;">
     <thead>
         <tr>
-            <th>Mois</th>
-            <th>Ventes (CFA)</th>
-            <th>Pourcentage</th>
+            <th>Month</th>
+            <th>sales (CFA)</th>
+            <th>Percentage</th>
         </tr>
     </thead>
     <tbody>
