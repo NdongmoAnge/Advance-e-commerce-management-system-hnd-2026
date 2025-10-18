@@ -363,7 +363,7 @@ if ($conn) {
                 <i class="fas fa-money-bill-wave"></i>
             </div>
             <div class="stat-card-info">
-                <h4>Revenu Total</h4>
+                <h4> Total Revenu</h4>
                 <h2>CFA<?= $totalRevenue ?></h2>
             </div>
         </div>
@@ -375,7 +375,7 @@ if ($conn) {
     <div class="table-row">
         <div class="table-container">
             <div class="table-header">
-                <h3>Revenu Mensuel <?= $currentYear ?></h3>
+                <h3>monthly Revenu <?= $currentYear ?></h3>
             </div>
             <div class="table-body">
                 <table class="dashboard-table">
