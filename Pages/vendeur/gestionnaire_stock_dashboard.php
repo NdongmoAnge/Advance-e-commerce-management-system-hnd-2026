@@ -103,7 +103,7 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tableau de Bord - Gestionnaire de Stock</title>
+    <title>Dashboard - Inventory Manager</title>
     
     <!-- Favicon -->
     <link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon">
@@ -394,31 +394,31 @@ $conn->close();
 <body>
     <div class="dashboard-container">
         <div class="dashboard-header">
-            <h1 class="dashboard-title">Tableau de Bord Gestionnaire de Stock</h1>
+            <h1 class="dashboard-title">Inventory Management Dashboard</h1>
             <div class="date-display"><?php echo date('l, d F Y'); ?></div>
         </div>
         
         <div class="stats-cards">
             <div class="stat-card card-primary">
-                <h3>Total Produits</h3>
+                <h3>Total Products</h3>
                 <div class="value"><?php echo $stats['total_products']; ?></div>
                 <div class="icon"><i class="fas fa-box"></i></div>
             </div>
             
             <div class="stat-card card-warning">
-                <h3>Produits Stock Bas</h3>
+                <h3>Low Stock Products</h3>
                 <div class="value"><?php echo $stats['low_stock']; ?></div>
                 <div class="icon"><i class="fas fa-exclamation-triangle"></i></div>
             </div>
             
             <div class="stat-card card-success">
-                <h3>Fournisseurs</h3>
+                <h3>Supplier</h3>
                 <div class="value"><?php echo $stats['total_suppliers']; ?></div>
                 <div class="icon"><i class="fas fa-truck"></i></div>
             </div>
             
             <div class="stat-card card-info">
-                <h3>Livraisons en Attente</h3>
+                <h3>Pending Deliveries</h3>
                 <div class="value"><?php echo $stats['pending_deliveries']; ?></div>
                 <div class="icon"><i class="fas fa-truck-loading"></i></div>
             </div>
@@ -428,17 +428,17 @@ $conn->close();
         <div class="dashboard-sections">
             <div class="dashboard-card">
                 <div class="card-header">
-                    <h2>Produits à Stock Bas</h2>
+                    <h2>Low Stock Products</h2>
                    
                 </div>
                 
                 <table class="data-table">
                     <thead>
                         <tr>
-                            <th>Produit</th>
-                            <th>Quantité</th>
-                            <th>Seuil</th>
-                            <th>Fournisseur</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Threshold</th>
+                            <th>Supplier</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -466,16 +466,16 @@ $conn->close();
         <div class="dashboard-sections">
             <div class="dashboard-card">
                 <div class="card-header">
-                    <h2>Produits les Plus Vendus</h2>
+                    <h2>Best Selling Products</h2>
                     
                 </div>
                 
                 <table class="data-table">
                     <thead>
                         <tr>
-                            <th>Produit</th>
-                            <th>Catégorie</th>
-                            <th>Ventes</th>
+                            <th>Product</th>
+                            <th>Category</th>
+                            <th>Salles</th>
                             <th>Stock Actuel</th>
                         </tr>
                     </thead>
@@ -494,7 +494,7 @@ $conn->close();
                             <?php endwhile; ?>
                         <?php else: ?>
                             <tr>
-                                <td colspan="5" style="text-align: center;">Aucune donnée de vente disponible</td>
+                                <td colspan="5" style="text-align: center;">No sales data available</td>
                             </tr>
                         <?php endif; ?>
                     </tbody>
@@ -503,7 +503,7 @@ $conn->close();
             
             <div class="dashboard-card">
                 <div class="card-header">
-                    <h2>Actions Rapides</h2>
+                    <h2>Quick Actions</h2>
                 </div>
                 
                 
@@ -511,10 +511,10 @@ $conn->close();
                 <div style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 10px; margin-top: 15px;">
                     <h3 style="color: #856404; font-size: 16px; margin-bottom: 5px;">
                         <i class="fas fa-bell" style="margin-right: 5px;"></i> 
-                        Vous avez <?php echo $unread_notifications; ?> notifications non lues
+                        You have <?php echo $unread_notifications; ?>  Unread notifications 
                     </h3>
                     <a href="../notifications.php" style="color: #0056b3; text-decoration: none; font-size: 14px;">
-                        Voir toutes les notifications
+                        See all notifications
                     </a>
                 </div>
                 <?php endif; ?>

@@ -39,7 +39,7 @@ $pageTitle = "Stock Dashboard";
                 .then(data => {
                     document.getElementById("dashboard-content").innerHTML = data;
                 })
-                .catch(error => console.error("Erreur de chargement du tableau de bord:", error));
+                .catch(error => console.error("Dashboard loading error:", error));
         }
         
         document.addEventListener("DOMContentLoaded", function() {
@@ -56,7 +56,7 @@ $pageTitle = "Stock Dashboard";
     <div class="main-content">
         <div id="dashboard-content">
             <!-- Dashboard content will be loaded dynamically -->
-            <p>Chargement du tableau de bord du gestionnaire de stock...</p>
+            <p>Loading the Inventory Manager Dashboard...</p>
         </div>
     </div>
 <script src="../assets/js/sidebar.js"></script>
