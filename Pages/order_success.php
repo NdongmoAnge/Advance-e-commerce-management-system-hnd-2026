@@ -62,7 +62,7 @@ include 'header.php';
         <div class="order-details">
             <p class="order-number">Command #<?php echo $orderId; ?></p>
             <p class="order-date">Date: <?php echo date('d/m/Y H:i', strtotime($orderData['order_date'])); ?></p>
-            <p class="order-total">Total: <?php echo number_format($orderData['total_amount'], 2, ',', ' '); ?> €</p>
+            <p class="order-total">Total: <?php echo number_format($orderData['total_amount'], 2, ',', ' '); ?>cfa?</p>
             <p class="payment-ref">Référence: <?php echo $orderData['payment_reference']; ?></p>
         </div>
         

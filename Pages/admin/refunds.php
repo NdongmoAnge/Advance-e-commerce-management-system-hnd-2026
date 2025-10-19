@@ -33,7 +33,7 @@ require_once '../DatabaseConnection/db_config.php';
                         echo "<td>" . $row['refund_id'] . "</td>";
                         echo "<td>" . $row['order_id'] . "</td>";
                         echo "<td>" . $row['user_id'] . "</td>";
-                        echo "<td>" . number_format($row['amount'], 2) . " €</td>";
+                        echo "<td>" . number_format($row['amount'], 2) . " Cfa</td>";
                         echo "<td>" . $row['refund_date'] . "</td>";
                         echo "<td>" . htmlspecialchars($row['status']) . "</td>";
                         echo "</tr>";

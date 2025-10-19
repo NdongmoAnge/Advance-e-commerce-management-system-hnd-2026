@@ -21,8 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const sidebarToggle = document.getElementById("sidebar-toggle");
   const body = document.body;
 
-  // Check if sidebar state is saved in localStorage
-  const sidebarCollapsed = localStorage.getItem("sidebarCollapsed") === "true";
+  // Check if  state is saved in localStorage
+  const ed = localStorage.getItem("sidebarCollapsed") === "true";
 
   // Set initial state based on localStorage or default to not collapsed
   if (sidebarCollapsed) {

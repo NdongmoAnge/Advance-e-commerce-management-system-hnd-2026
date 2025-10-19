@@ -92,7 +92,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                             <i class="fas fa-user-circle"></i> <?= isset($_SESSION['user_name']) ? explode(' ', $_SESSION['user_name'])[0] : 'Utilisateur' ?>
                         </a>
                         <a href="logout.php" class="logout-btn">
-                            <i class="fas fa-sign-out-alt"></i> Deconnection
+                            <i class="fas fa-sign-out-alt"></i> Log-out
                         </a>
                     </div>
                 <?php endif; ?>

@@ -32,7 +32,7 @@ require_once '../DatabaseConnection/db_config.php';
                         echo "<td>" . $row['invoice_id'] . "</td>";
                         echo "<td>" . $row['order_id'] . "</td>";
                         echo "<td>" . $row['user_id'] . "</td>";
-                        echo "<td>" . number_format($row['total_amount'], 2) . " €</td>";
+                        echo "<td>" . number_format($row['total_amount'], 2) . "Cfa</td>";
                         echo "<td>" . $row['invoice_date'] . "</td>";
                         echo "</tr>";
                     }

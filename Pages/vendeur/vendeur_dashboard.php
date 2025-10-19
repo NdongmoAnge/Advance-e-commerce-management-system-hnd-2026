@@ -67,12 +67,18 @@ $salesStatsQuery = "
 
 $stmt = $pdo->prepare($salesStatsQuery);
 $stmt->execute([
-    $vendeurId, $vendeurId,
-    $vendeurId, $vendeurId,
-    $vendeurId, $vendeurId,
-    $vendeurId, $vendeurId,
-    $vendeurId, $vendeurId,
-    $vendeurId, $vendeurId
+    $vendeurId,
+    $vendeurId,
+    $vendeurId,
+    $vendeurId,
+    $vendeurId,
+    $vendeurId,
+    $vendeurId,
+    $vendeurId,
+    $vendeurId,
+    $vendeurId,
+    $vendeurId,
+    $vendeurId
 ]);
 $salesStats = $stmt->fetch();
 
@@ -109,8 +115,8 @@ foreach ($topProducts as &$product) {
 
 <div class="dashboard-container">
     <div class="dashboard-header">
-        <h1><i class="fas fa-chart-line"></i> Tableau de Bord Vendeur</h1>
-        <p>Bienvenue, <?= htmlspecialchars($_SESSION['first_name'] ?? 'Vendeur') ?>! Voici un aperçu de vos activités commerciales récentes.</p>
+        <h1><i class="fas fa-chart-line"></i> Seller's Dashboard</h1>
+        <p>Welcome, <?= htmlspecialchars($_SESSION['first_name'] ?? 'Vendeur') ?>! Voici un aperçu de vos activités commerciales récentes.</p>
     </div>
 
     <!-- Statistiques de Ventes -->
@@ -120,7 +126,7 @@ foreach ($topProducts as &$product) {
                 <i class="fas fa-euro-sign"></i>
             </div>
             <div class="stat-card-info">
-                <h3>Ventes Aujourd'hui</h3>
+                <h3>Today's salles</h3>
                 <p><?= $salesStats['daily'] ?></p>
             </div>
         </div>
@@ -129,7 +135,7 @@ foreach ($topProducts as &$product) {
                 <i class="fas fa-calendar-week"></i>
             </div>
             <div class="stat-card-info">
-                <h3>Ventes Hebdomadaires</h3>
+                <h3>Weekly Sales</h3>
                 <p><?= $salesStats['weekly'] ?></p>
             </div>
         </div>
@@ -138,7 +144,7 @@ foreach ($topProducts as &$product) {
                 <i class="fas fa-calendar-alt"></i>
             </div>
             <div class="stat-card-info">
-                <h3>Ventes Mensuelles</h3>
+                <h3>Monthly Sales</h3>
                 <p><?= $salesStats['monthly'] ?></p>
             </div>
         </div>
@@ -147,7 +153,7 @@ foreach ($topProducts as &$product) {
                 <i class="fas fa-tags"></i>
             </div>
             <div class="stat-card-info">
-                <h3>Panier Moyen</h3>
+                <h3>Medium Basket</h3>
                 <p><?= $salesStats['avgOrderValue'] ?></p>
             </div>
         </div>
@@ -157,7 +163,7 @@ foreach ($topProducts as &$product) {
     <div class="dashboard-row">
         <div class="dashboard-card orders-overview">
             <div class="card-header">
-                <h2>Aperçu des Commandes</h2>
+                <h2>Orders Overview</h2>
             </div>
             <div class="card-body">
                 <div class="order-stats">
@@ -167,11 +173,11 @@ foreach ($topProducts as &$product) {
                     </div>
                     <div class="order-stat">
                         <span class="stat-value"><?= $salesStats['pendingOrders'] ?></span>
-                        <span class="stat-label">En attente</span>
+                        <span class="stat-label">On hold</span>
                     </div>
                     <div class="order-stat">
                         <span class="stat-value"><?= $salesStats['totalOrders'] - $salesStats['pendingOrders'] ?></span>
-                        <span class="stat-label">Complétées</span>
+                        <span class="stat-label">Completed</span>
                     </div>
                 </div>
                 <table class="dashboard-table">
@@ -179,29 +185,29 @@ foreach ($topProducts as &$product) {
                         <tr>
                             <th>ID</th>
                             <th>Client</th>
-                            <th>Montant</th>
+                            <th>Price</th>
                             <th>Date</th>
                             <th>Statut</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php if (empty($recentSales)): ?>
-                        <tr>
-                            <td colspan="5" class="text-center">Aucune vente récente trouvée</td>
-                        </tr>
+                            <tr>
+                                <td colspan="5" class="text-center">Aucune vente récente trouvée</td>
+                            </tr>
                         <?php else: ?>
                             <?php foreach ($recentSales as $sale): ?>
-                            <tr>
-                                <td>#<?= $sale['id'] ?></td>
-                                <td><?= htmlspecialchars($sale['customer']) ?></td>
-                                <td><?= $sale['amount'] ?></td>
-                                <td><?= $sale['date'] ?></td>
-                                <td>
-                                    <span class="status-badge <?= $sale['status'] === 'delivered' || $sale['status'] === 'shipped' ? 'success' : 'pending' ?>">
-                                        <?= $sale['status_fr'] ?>
-                                    </span>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>#<?= $sale['id'] ?></td>
+                                    <td><?= htmlspecialchars($sale['customer']) ?></td>
+                                    <td><?= $sale['amount'] ?></td>
+                                    <td><?= $sale['date'] ?></td>
+                                    <td>
+                                        <span class="status-badge <?= $sale['status'] === 'delivered' || $sale['status'] === 'shipped' ? 'success' : 'pending' ?>">
+                                            <?= $sale['status_fr'] ?>
+                                        </span>
+                                    </td>
+                                </tr>
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </tbody>
@@ -214,37 +220,37 @@ foreach ($topProducts as &$product) {
     <div class="dashboard-row">
         <div class="dashboard-card top-products">
             <div class="card-header">
-                <h2>Produits les Plus Vendus</h2>
+                <h2>Best Selling Products</h2>
             </div>
             <div class="card-body">
                 <table class="dashboard-table">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Produit</th>
-                            <th>Ventes</th>
+                            <th>Product</th>
+                            <th>Salles</th>
                             <th>Revenu</th>
                             <th>Stock</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php if (empty($topProducts)): ?>
-                        <tr>
-                            <td colspan="5" class="text-center">Aucun produit trouvé</td>
-                        </tr>
+                            <tr>
+                                <td colspan="5" class="text-center">No products found</td>
+                            </tr>
                         <?php else: ?>
                             <?php foreach ($topProducts as $product): ?>
-                            <tr>
-                                <td><?= $product['id'] ?></td>
-                                <td><?= htmlspecialchars($product['name']) ?></td>
-                                <td><?= $product['sales'] ?></td>
-                                <td><?= $product['revenue'] ?></td>
-                                <td>
-                                    <span class="stock-badge <?= $product['stock'] < 10 ? 'low' : 'ok' ?>">
-                                        <?= $product['stock'] ?>
-                                    </span>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td><?= $product['id'] ?></td>
+                                    <td><?= htmlspecialchars($product['name']) ?></td>
+                                    <td><?= $product['sales'] ?></td>
+                                    <td><?= $product['revenue'] ?></td>
+                                    <td>
+                                        <span class="stock-badge <?= $product['stock'] < 10 ? 'low' : 'ok' ?>">
+                                            <?= $product['stock'] ?>
+                                        </span>
+                                    </td>
+                                </tr>
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </tbody>
@@ -252,301 +258,302 @@ foreach ($topProducts as &$product) {
             </div>
         </div>
     </div>
-<style>
-.dashboard-container {
-    padding: 20px;
-    font-family: 'Nunito', sans-serif;
-}
+    <style>
+        .dashboard-container {
+            padding: 20px;
+            font-family: 'Nunito', sans-serif;
+        }
 
-.dashboard-header {
-    margin-bottom: 30px;
-}
+        .dashboard-header {
+            margin-bottom: 30px;
+        }
 
-.dashboard-header h1 {
-    font-size: 24px;
-    color: #2c3e50;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-}
+        .dashboard-header h1 {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
 
-.dashboard-header h1 i {
-    margin-right: 10px;
-    color: #3498db;
-}
+        .dashboard-header h1 i {
+            margin-right: 10px;
+            color: #3498db;
+        }
 
-.dashboard-header p {
-    color: #7f8c8d;
-    font-size: 14px;
-}
+        .dashboard-header p {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
 
-.stats-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-    margin-bottom: 30px;
-}
+        .stats-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
 
-.stat-card {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    transition: transform 0.3s;
-}
+        .stat-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s;
+        }
 
-.stat-card:hover {
-    transform: translateY(-5px);
-}
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
 
-.stat-card-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 15px;
-}
+        .stat-card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
 
-.stat-card-icon i {
-    font-size: 20px;
-    color: white;
-}
+        .stat-card-icon i {
+            font-size: 20px;
+            color: white;
+        }
 
-.stat-card-icon.blue {
-    background: linear-gradient(45deg, #3498db, #2980b9);
-}
+        .stat-card-icon.blue {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+        }
 
-.stat-card-icon.green {
-    background: linear-gradient(45deg, #2ecc71, #27ae60);
-}
+        .stat-card-icon.green {
+            background: linear-gradient(45deg, #2ecc71, #27ae60);
+        }
 
-.stat-card-icon.purple {
-    background: linear-gradient(45deg, #9b59b6, #8e44ad);
-}
-.stat-card-icon.orange {
-    background: linear-gradient(45deg, #f39c12, #d35400);
-}
+        .stat-card-icon.purple {
+            background: linear-gradient(45deg, #9b59b6, #8e44ad);
+        }
 
-.stat-card-info h3 {
-    margin: 0;
-    font-size: 14px;
-    color: #7f8c8d;
-    font-weight: 600;
-}
+        .stat-card-icon.orange {
+            background: linear-gradient(45deg, #f39c12, #d35400);
+        }
 
-.stat-card-info p {
-    margin: 5px 0 0;
-    font-size: 20px;
-    font-weight: 700;
-    color: #2c3e50;
-}
+        .stat-card-info h3 {
+            margin: 0;
+            font-size: 14px;
+            color: #7f8c8d;
+            font-weight: 600;
+        }
 
-.dashboard-row {
-    margin-bottom: 30px;
-}
+        .stat-card-info p {
+            margin: 5px 0 0;
+            font-size: 20px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
 
-.dashboard-card {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
+        .dashboard-row {
+            margin-bottom: 30px;
+        }
 
-.card-header {
-    padding: 15px 20px;
-    border-bottom: 1px solid #ecf0f1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        .dashboard-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
 
-.card-header h2 {
-    margin: 0;
-    font-size: 18px;
-    color: #2c3e50;
-}
+        .card-header {
+            padding: 15px 20px;
+            border-bottom: 1px solid #ecf0f1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.view-all {
-    font-size: 14px;
-    color: #3498db;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-}
+        .card-header h2 {
+            margin: 0;
+            font-size: 18px;
+            color: #2c3e50;
+        }
 
-.view-all i {
-    margin-left: 5px;
-}
+        .view-all {
+            font-size: 14px;
+            color: #3498db;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
 
-.card-body {
-    padding: 20px;
-}
+        .view-all i {
+            margin-left: 5px;
+        }
 
-.order-stats {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #ecf0f1;
-}
+        .card-body {
+            padding: 20px;
+        }
 
-.order-stat {
-    text-align: center;
-}
+        .order-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ecf0f1;
+        }
 
-.stat-value {
-    display: block;
-    font-size: 24px;
-    font-weight: 700;
-    color: #2c3e50;
-}
+        .order-stat {
+            text-align: center;
+        }
 
-.stat-label {
-    font-size: 14px;
-    color: #7f8c8d;
-}
+        .stat-value {
+            display: block;
+            font-size: 24px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
 
-.dashboard-table {
-    width: 100%;
-    border-collapse: collapse;
-}
+        .stat-label {
+            font-size: 14px;
+            color: #7f8c8d;
+        }
 
-.dashboard-table th {
-    text-align: left;
-    padding: 12px 15px;
-    background-color: #f8f9fa;
-    color: #2c3e50;
-    font-size: 14px;
-    font-weight: 600;
-}
+        .dashboard-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-.dashboard-table td {
-    padding: 12px 15px;
-    border-top: 1px solid #ecf0f1;
-    color: #2c3e50;
-    font-size: 14px;
-}
+        .dashboard-table th {
+            text-align: left;
+            padding: 12px 15px;
+            background-color: #f8f9fa;
+            color: #2c3e50;
+            font-size: 14px;
+            font-weight: 600;
+        }
 
-.text-center {
-    text-align: center;
-}
+        .dashboard-table td {
+            padding: 12px 15px;
+            border-top: 1px solid #ecf0f1;
+            color: #2c3e50;
+            font-size: 14px;
+        }
 
-.status-badge {
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-}
+        .text-center {
+            text-align: center;
+        }
 
-.status-badge.success {
-    background-color: rgba(46, 204, 113, 0.15);
-    color: #27ae60;
-}
+        .status-badge {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
 
-.status-badge.pending {
-    background-color: rgba(243, 156, 18, 0.15);
-    color: #d35400;
-}
+        .status-badge.success {
+            background-color: rgba(46, 204, 113, 0.15);
+            color: #27ae60;
+        }
 
-.stock-badge {
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-}
+        .status-badge.pending {
+            background-color: rgba(243, 156, 18, 0.15);
+            color: #d35400;
+        }
 
-.stock-badge.ok {
-    background-color: rgba(46, 204, 113, 0.15);
-    color: #27ae60;
-}
+        .stock-badge {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
 
-.stock-badge.low {
-    background-color: rgba(231, 76, 60, 0.15);
-    color: #c0392b;
-}
+        .stock-badge.ok {
+            background-color: rgba(46, 204, 113, 0.15);
+            color: #27ae60;
+        }
 
-.quick-links {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-}
+        .stock-badge.low {
+            background-color: rgba(231, 76, 60, 0.15);
+            color: #c0392b;
+        }
 
-.quick-link-card {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-    text-decoration: none;
-    color: #2c3e50;
-    transition: transform 0.3s, box-shadow 0.3s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
 
-.quick-link-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-}
+        .quick-link-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #2c3e50;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-.quick-link-card i {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #3498db;
-}
+        .quick-link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
 
-.quick-link-card span {
-    font-weight: 600;
-}
+        .quick-link-card i {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #3498db;
+        }
 
-.error-message {
-    background-color: #f8d7da;
-    color: #721c24;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    text-align: center;
-}
+        .quick-link-card span {
+            font-weight: 600;
+        }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .stats-cards {
-        grid-template-columns: 1fr 1fr;
-    }
-    
-    .quick-links {
-        grid-template-columns: 1fr 1fr;
-    }
-    
-    .dashboard-table th:nth-child(4),
-    .dashboard-table td:nth-child(4) {
-        display: none;
-    }
-}
+        .error-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
 
-@media (max-width: 576px) {
-    .stats-cards {
-        grid-template-columns: 1fr;
-    }
-    
-    .quick-links {
-        grid-template-columns: 1fr;
-    }
-    
-    .dashboard-table th:nth-child(3),
-    .dashboard-table td:nth-child(3),
-    .dashboard-table th:nth-child(5),
-    .dashboard-table td:nth-child(5) {
-        display: none;
-    }
-    
-    .order-stats {
-        flex-direction: column;
-        gap: 15px;
-    }
-}
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .stats-cards {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .quick-links {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .dashboard-table th:nth-child(4),
+            .dashboard-table td:nth-child(4) {
+                display: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .stats-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-links {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-table th:nth-child(3),
+            .dashboard-table td:nth-child(3),
+            .dashboard-table th:nth-child(5),
+            .dashboard-table td:nth-child(5) {
+                display: none;
+            }
+
+            .order-stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }

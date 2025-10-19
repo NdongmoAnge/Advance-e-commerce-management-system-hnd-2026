@@ -175,25 +175,25 @@ function displayModuleDescription(moduleId) {
 // Fonction pour formater le nom du module
 function formatModuleName(moduleId) {
   const nameMapping = {
-    dashboard: "Tableau de Bord",
-    profile: "Mon Profil",
-    users: "Gestion des Utilisateurs",
-    roles: "Gestion des Rôles",
-    settings: "Paramètres Système",
-    products: "Produits",
-    categories: "Catégories",
-    inventory: "Inventaire",
+    dashboard: "Dashboard",
+    profile: "My Profile",
+    users: "User Management",
+    roles: "Role Management",
+    settings: "System Settings",
+    products: "Products",
+    categories: "Categories",
+    inventory: "Inventory",
     orders: "Commandes",
-    "new-sale": "Nouvelle Vente",
-    verifications: "Vérifications",
+    "new-sale": "New salles",
+    verifications: "Verifications",
     transactions: "Transactions",
-    reports: "Rapports",
-    suppliers: "Fournisseurs",
-    "product-supply": "Approvisionnement",
-    deliveries: "Gestion des Livraisons",
+    reports: "Reports",
+    suppliers: "Supplier",
+    "product-supply": "Supply",
+    deliveries: "Delivery Management",
     tickets: "Tickets Support",
-    shop: "Boutique",
-    "my-orders": "Mes Commandes",
+    shop: "Shop",
+    "my-orders": "My Commandes",
     support: "Support",
   };
 
@@ -208,7 +208,7 @@ function simulateLogin(userRole) {
   // Masquer le formulaire de login
   document.getElementById("loginContainer").style.display = "none";
 
-  // Afficher le tableau de bord
+  // show the dashboard de bord
   document.getElementById("dashboardContainer").style.display = "block";
 
   // Initialiser l'interface utilisateur

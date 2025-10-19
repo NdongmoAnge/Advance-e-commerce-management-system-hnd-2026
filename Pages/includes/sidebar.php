@@ -25,13 +25,13 @@ $sidebarItems = [
     'default' => [
         'dashboard' => [
             'icon' => 'fas fa-tachometer-alt',
-            'title' => 'Tableau de bord',
+            'title' => 'Dashbord',
             'link' => 'dashboard1.php',
             'class' => 'load-page'
         ],
         'profile' => [
             'icon' => 'fas fa-user',
-            'title' => 'Mon Profil',
+            'title' => 'My Profile',
             'link' => 'profile.php',
             'id' => 'profile-link',
             'class' => 'load-page'
@@ -40,19 +40,19 @@ $sidebarItems = [
  'admin' => [
     'user_management' => [
         'icon' => 'fas fa-users',
-        'title' => 'Gestion des Utilisateurs',
+        'title' => 'User Management',
         'link' => 'users1.php',
         'class' => 'load-page',
     ],
     'catalog_categories' => [
         'icon' => 'fas fa-book',
-        'title' => 'Voir Catégories',
+        'title' => 'See Categories',
         'link' => 'categories.php',
         'class' => 'load-page',
     ],
     'catalog_products' => [
         'icon' => 'fas fa-box',
-        'title' => 'Produits',
+        'title' => 'Products',
         'link' => 'products.php',
         'class' => 'load-page',
     ],
@@ -64,14 +64,14 @@ $sidebarItems = [
     ],
     'shipments' => [
         'icon' => 'fas fa-truck',
-        'title' => 'Expéditions',
+        'title' => 'Expeditions',
         'link' => 'shipments.php',
         'class' => 'load-page',
     ],
     
     'suppliers' => [
         'icon' => 'fas fa-truck-loading',
-        'title' => 'Fournisseurs',
+        'title' => 'Suppliers',
         'link' => 'suppliers.php',
         'class' => 'load-page',
     ],
@@ -79,31 +79,31 @@ $sidebarItems = [
 ],
 
     'client' => [
-        'shop' => ['icon' => 'fas fa-shopping-bag', 'title' => 'Boutique', 'link' => 'shop.php', 'class' => 'load-page'],
-        'orders' => ['icon' => 'fas fa-shopping-cart', 'title' => 'Mes Commandes', 'link' => 'my_orders.php', 'class' => 'load-page'],
-        'wishlist' => ['icon' => 'fas fa-heart', 'title' => 'Liste de Souhaits', 'link' => 'wishlist.php', 'class' => 'load-page'],
-        'reviews' => ['icon' => 'fas fa-star', 'title' => 'Mes Avis', 'link' => 'my_reviews.php', 'class' => 'load-page'],
+        'shop' => ['icon' => 'fas fa-shopping-bag', 'title' => 'Shop', 'link' => 'shop.php', 'class' => 'load-page'],
+        'orders' => ['icon' => 'fas fa-shopping-cart', 'title' => 'My Commandes', 'link' => 'my_orders.php', 'class' => 'load-page'],
+        'wishlist' => ['icon' => 'fas fa-heart', 'title' => 'Whishlist', 'link' => 'wishlist.php', 'class' => 'load-page'],
+        'reviews' => ['icon' => 'fas fa-star', 'title' => 'My Reviews', 'link' => 'my_reviews.php', 'class' => 'load-page'],
         'support' => ['icon' => 'fas fa-headset', 'title' => 'Support', 'link' => 'customer_support.php', 'class' => 'load-page']
     ],
    'vendeur' => [
-        'dashboard' => ['icon' => 'fas fa-chart-line', 'title' => 'Tableau de bord', 'link' => 'vendeur_dashboard.php', 'class' => 'load-page'],
+        'dashboard' => ['icon' => 'fas fa-chart-line', 'title' => 'Dashboard', 'link' => 'vendeur_dashboard.php', 'class' => 'load-page'],
         'customers' => ['icon' => 'fas fa-users', 'title' => 'Clients', 'link' => 'customers.php', 'class' => 'load-page'],
-         'customers' => ['icon' => 'fas fa-users', 'title' => 'paiement', 'link' => 'verify_payment.php', 'class' => 'load-page'],
-        'products' => ['icon' => 'fas fa-box', 'title' => 'Produits', 'link' => 'products.php', 'class' => 'load-page'],
+         'customers' => ['icon' => 'fas fa-users', 'title' => 'payment', 'link' => 'verify_payment.php', 'class' => 'load-page'],
+        'products' => ['icon' => 'fas fa-box', 'title' => 'Products', 'link' => 'products.php', 'class' => 'load-page'],
         'orders' => ['icon' => 'fas fa-shopping-cart', 'title' => 'Commandes', 'link' => 'orders.php', 'class' => 'load-page'],
    ],
     'gestionnaire_stock' => [ 
-        'dashboard' => ['icon' => 'fas fa-chart-line', 'title' => 'Tableau de bord', 'link' => 'gestionnaire_stock_dashboard.php', 'class' => 'load-page'],
+        'dashboard' => ['icon' => 'fas fa-chart-line', 'title' => 'Dashboard', 'link' => 'gestionnaire_stock_dashboard.php', 'class' => 'load-page'],
         'suppliers' => ['icon' => 'fas fa-truck', 'title' => 'Fournisseurs', 'link' => 'suppliers.php', 'class' => 'load-page'],
         'low_stock' => ['icon' => 'fas fa-box', 'title' => 'Produits', 'link' => 'products.php', 'class' => 'load-page']
     ],  
     'responsable_financier' => [
         'transactions' => ['icon' => 'fas fa-exchange-alt', 'title' => 'Transactions', 'link' => 'transactions.php', 'class' => 'load-page'],
-        'payments' => ['icon' => 'fas fa-credit-card', 'title' => 'Paiements', 'link' => 'payments.php', 'class' => 'load-page'],
-        'invoices' => ['icon' => 'fas fa-file-invoice', 'title' => 'Factures', 'link' => 'invoices.php', 'class' => 'load-page'],
-        'revenue' => ['icon' => 'fas fa-chart-line', 'title' => 'Revenus', 'link' => 'revenue.php', 'class' => 'load-page'],
-        'expenses' => ['icon' => 'fas fa-money-bill-wave', 'title' => 'Dépenses', 'link' => 'expenses.php', 'class' => 'load-page'],
-        'reports' => ['icon' => 'fas fa-chart-bar', 'title' => 'Rapports Financiers', 'link' => 'financial_reports.php', 'class' => 'load-page']
+        'payments' => ['icon' => 'fas fa-credit-card', 'title' => 'Payments', 'link' => 'payments.php', 'class' => 'load-page'],
+        'invoices' => ['icon' => 'fas fa-file-invoice', 'title' => 'Bill', 'link' => 'invoices.php', 'class' => 'load-page'],
+        'revenue' => ['icon' => 'fas fa-chart-line', 'title' => 'Revenues', 'link' => 'revenue.php', 'class' => 'load-page'],
+        'expenses' => ['icon' => 'fas fa-money-bill-wave', 'title' => 'Expenses', 'link' => 'expenses.php', 'class' => 'load-page'],
+        'reports' => ['icon' => 'fas fa-chart-bar', 'title' => 'Financial Reports', 'link' => 'financial_reports.php', 'class' => 'load-page']
     ]
 ];
 

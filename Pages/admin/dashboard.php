@@ -43,10 +43,10 @@ $pageTitle = "Admin Dashboard";
                     document.getElementById("dashboard-content").innerHTML = data;
                 })
                 }{
-                .catch(error => console.error("Erreur de chargement du tableau de bord:", error));
-                .catch(error => console.error("Erreur de chargement du tableau de bord:", error));
-                .catch(error => console.error("Erreur de chargement du tableau de bord:", error));
-                .catch(error => console.error("Erreur de chargement du tableau de bord:", error));
+                .catch(error => console.error("Dashboard loading error:", error));
+                .catch(error => console.error("Dashboard loading error:", error));
+                .catch(error => console.error("Dashboard loading error:", error));
+                .catch(error => console.error("Dashboard loading error:", error));
         }
         
         document.addEventListener("DOMContentLoaded", function() {
@@ -63,7 +63,7 @@ $pageTitle = "Admin Dashboard";
     <div class="main-content">
         <div id="dashboard-content">
             <!-- Dashboard content will be loaded dynamically -->
-            <p>Chargement du tableau de bord...</p>
+            <p>Loading dashboard...</p>
         </div>
     </div>
 <script src="../assets/js/sidebar.js"></script>

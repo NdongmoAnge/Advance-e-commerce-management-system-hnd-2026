@@ -41,7 +41,8 @@ function getCartTotal($conn, $userId) {
 
 // Function to format price
 function formatPrice($price) {
-    return number_format($price, 2, ',', ' ') . ' €';
+    return number_format($price, 2, ',', ' ') . ' cfa
+    ';
 }
 
 // Process cart actions

@@ -3,13 +3,13 @@ require_once '../DatabaseConnection/db_config.php';
 session_start();
 
 header('Content-Type: application/json');
-$response = ['success' => false, 'message' => 'Requête invalide'];
+$response = ['success' => false, 'message' => 'invalide Request'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'update_profile') {
     
     // Vérifier si l'utilisateur est connecté
     if (!isset($_SESSION['user_id'])) {
-        echo json_encode(['success' => false, 'message' => 'Utilisateur non connecté']);
+        echo json_encode(['success' => false, 'message' => 'User not connected']);
         exit();
     }
 
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     $email_check_result = $stmt->get_result()->fetch_assoc();
 
     if ($email_check_result['count'] > 0) {
-        echo json_encode(['success' => false, 'message' => "Cet email est déjà utilisé par un autre utilisateur."]);
+        echo json_encode(['success' => false, 'message' => "This email is already used by another user."]);
         exit();
     }
 
@@ -43,9 +43,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     $stmt->bind_param("sssssssi", $first_name, $last_name, $email, $phone_number, $country, $state, $quarter, $user_id);
 
     if ($stmt->execute()) {
-        $response = ['success' => true, 'message' => 'Profil mis à jour avec succès.'];
+        $response = ['success' => true, 'message' => 'Profile updated successfully.'];
     } else {
-        $response = ['success' => false, 'message' => 'Erreur lors de la mise à jour du profil.'];
+        $response = ['success' => false, 'message' => 'Error updating profile.'];
     }
 
     echo json_encode($response);
