@@ -241,7 +241,7 @@ document.addEventListener("DOMContentLoaded", function () {
           labels: months.slice(0, 3), // Show only first 3 months of the year
           datasets: [
             {
-              label: "Ventes (€)",
+              label: "Ventes (Cfa)",
               backgroundColor: "rgba(54, 162, 235, 0.2)",
               borderColor: "rgba(54, 162, 235, 1)",
               data: salesData.slice(0, 3), // Show only first 3 months of data
@@ -259,7 +259,7 @@ document.addEventListener("DOMContentLoaded", function () {
             tooltip: {
               callbacks: {
                 label: function (context) {
-                  return context.parsed.y.toFixed(2) + " €";
+                  return context.parsed.y.toFixed(2) + " Cfa";
                 },
               },
             },
@@ -269,7 +269,7 @@ document.addEventListener("DOMContentLoaded", function () {
               beginAtZero: true,
               ticks: {
                 callback: function (value) {
-                  return value / 1000 + "k €";
+                  return value / 1000 + "k Cfa";
                 },
               },
             },

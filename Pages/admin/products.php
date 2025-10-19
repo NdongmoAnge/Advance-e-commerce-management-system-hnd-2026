@@ -80,7 +80,7 @@ $products = $conn->query($sql);
                             <td><?php echo $row['product_id']; ?></td>
                             <td><?php echo htmlspecialchars($row['name']); ?></td>
                             <td><?php echo htmlspecialchars($row['category_name']); ?></td>
-                            <td><?php echo number_format($row['price'], 2) . ' €'; ?></td>
+                            <td><?php echo number_format($row['price'], 2) . ' Cfa'; ?></td>
                             <td><?php echo $row['stock_quantity']; ?></td>
                             <td><?php echo htmlspecialchars($row['supplier_name'] ?? 'N/A'); ?></td>
                             <td><?php if (!empty($row['image_path'])): ?>

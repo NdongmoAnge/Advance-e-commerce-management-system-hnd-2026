@@ -202,7 +202,7 @@ try {
                                 </div>
                             </td>
                             <td><?= date('d/m/Y H:i', strtotime($sale['order_date'])) ?></td>
-                            <td><?= number_format($sale['total_amount'], 2, ',', ' ') ?> €</td>
+                            <td><?= number_format($sale['total_amount'], 2, ',', ' ') ?> Cfa</td>
                             <td>
                                 <span class="status-badge <?= strtolower($sale['status']) ?>">
                                     <?= ucfirst($sale['status']) ?>
